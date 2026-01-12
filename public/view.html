@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f3460">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>View Data - FTC Scout 22351</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginSection" class="login-section">
+            <header>
+                <h1>🔒 Authentication Required</h1>
+                <p class="team-number">Team 22351 Data Access</p>
+            </header>
+            <main>
+                <form id="loginForm" class="scouting-form" style="max-width: 400px;">
+                    <div class="form-section">
+                        <h2>Enter Password</h2>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter viewing password" required autofocus>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Access Data</button>
+                        <div id="loginError" class="status-message"></div>
+                    </div>
+                </form>
+                <a href="/" class="btn btn-secondary" style="margin-top: 20px; display: inline-block;">← Back to Home</a>
+            </main>
+        </div>
+
+        <!-- Data View (hidden until authenticated) -->
+        <div id="dataSection" style="display: none;">
+            <header>
+                <a href="/" class="back-button">← Back</a>
+                <h1>Scouting Data</h1>
+                <button id="logoutButton" class="btn btn-text" style="position: absolute; right: 0; top: 30px;">Logout</button>
+            </header>
+
+            <main>
+                <div class="controls">
+                    <div class="filter-controls">
+                        <input type="text" id="searchTeam" placeholder="Search by team number..." class="search-input">
+                        <select id="filterMatch" class="filter-select">
+                            <option value="">All Matches</option>
+                        </select>
+                        <button id="refreshData" class="btn btn-secondary">🔄 Refresh</button>
+                    </div>
+
+                    <div class="data-stats">
+                        <span id="totalEntries" class="stat-badge">0 entries</span>
+                        <span id="lastUpdated" class="stat-badge">Never updated</span>
+                    </div>
+                </div>
+
+                <div id="dataContainer" class="data-container">
+                    <div class="loading-message">Loading data...</div>
+                </div>
+
+                <div class="export-controls">
+                    <button id="exportCSV" class="btn btn-primary">📥 Export CSV</button>
+                    <button id="exportJSON" class="btn btn-secondary">📄 Export JSON</button>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Team 22351</p>
+        </footer>
+    </div>
+
+    <script src="/js/view.js"></script>
+</body>
+</html>

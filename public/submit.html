@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f3460">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Submit Data - FTC Scout 22351</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-button">← Back</a>
+            <h1>Submit Match Data</h1>
+        </header>
+
+        <main>
+            <form id="scoutingForm" class="scouting-form">
+                <!-- Team Information -->
+                <section class="form-section">
+                    <h2>Team Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="scoutingTeam">Your Team Number</label>
+                        <input type="number" id="scoutingTeam" name="scoutingTeam" value="22351" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="scoutName">Scout Name</label>
+                        <input type="text" id="scoutName" name="scoutName" placeholder="Enter your name" required>
+                    </div>
+                </section>
+
+                <!-- Match Information -->
+                <section class="form-section">
+                    <h2>Match Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="matchNumber">Match Number</label>
+                        <input type="number" id="matchNumber" name="matchNumber" placeholder="e.g., 1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="teamNumber">Team Being Scouted</label>
+                        <input type="number" id="teamNumber" name="teamNumber" placeholder="e.g., 12345" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alliance">Alliance Color</label>
+                        <select id="alliance" name="alliance" required>
+                            <option value="">Select...</option>
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- Autonomous Period -->
+                <section class="form-section">
+                    <h2>Autonomous Period</h2>
+                    
+                    <div class="form-group">
+                        <label for="autoMoved">Moved from Starting Position?</label>
+                        <select id="autoMoved" name="autoMoved">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="autoSamples">Samples Scored</label>
+                        <input type="number" id="autoSamples" name="autoSamples" min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="autoSpecimens">Specimens Scored</label>
+                        <input type="number" id="autoSpecimens" name="autoSpecimens" min="0" value="0">
+                    </div>
+                </section>
+
+                <!-- Teleop Period -->
+                <section class="form-section">
+                    <h2>Teleop Period</h2>
+                    
+                    <div class="form-group">
+                        <label for="teleopSamples">Samples Scored</label>
+                        <input type="number" id="teleopSamples" name="teleopSamples" min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="teleopSpecimens">Specimens Scored</label>
+                        <input type="number" id="teleopSpecimens" name="teleopSpecimens" min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="teleopDefense">Played Defense?</label>
+                        <select id="teleopDefense" name="teleopDefense">
+                            <option value="no">No</option>
+                            <option value="some">Some</option>
+                            <option value="heavy">Heavy</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- End Game -->
+                <section class="form-section">
+                    <h2>End Game</h2>
+                    
+                    <div class="form-group">
+                        <label for="endgameClimb">Climb Status</label>
+                        <select id="endgameClimb" name="endgameClimb">
+                            <option value="none">No Attempt</option>
+                            <option value="attempted">Attempted</option>
+                            <option value="low">Low Rung</option>
+                            <option value="high">High Rung</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endgameParked">Parked?</label>
+                        <select id="endgameParked" name="endgameParked">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- Additional Notes -->
+                <section class="form-section">
+                    <h2>Additional Notes</h2>
+                    
+                    <div class="form-group">
+                        <label for="robotSpeed">Robot Speed (1-5)</label>
+                        <input type="range" id="robotSpeed" name="robotSpeed" min="1" max="5" value="3">
+                        <span id="speedValue" class="range-value">3</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Comments</label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Any observations, issues, or notable performance..."></textarea>
+                    </div>
+                </section>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Data</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+
+                <div id="submitStatus" class="status-message"></div>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Team 22351</p>
+        </footer>
+    </div>
+
+    <script src="/js/submit.js"></script>
+</body>
+</html>
