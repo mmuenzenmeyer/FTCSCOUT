@@ -13,6 +13,17 @@ const PIT_DATA_FILE = path.join(__dirname, 'data', 'pit-data.json');
 const VIEW_PASSWORD = process.env.VIEW_PASSWORD || '22351';
 const DEV_PASSWORD = process.env.DEV_PASSWORD || 'dev22351admin';
 
+// Cloud Storage Configuration (for future integration)
+// Uncomment and configure when ready to use cloud storage
+// const CLOUD_STORAGE_ENABLED = process.env.CLOUD_STORAGE_ENABLED === 'true';
+// const CLOUD_STORAGE_URL = process.env.CLOUD_STORAGE_URL; // e.g., Firebase, AWS S3, MongoDB Atlas
+// const CLOUD_STORAGE_KEY = process.env.CLOUD_STORAGE_KEY;
+// 
+// To enable cloud storage:
+// 1. Set environment variables for your cloud service
+// 2. Install required packages (e.g., firebase-admin, aws-sdk, mongodb)
+// 3. Uncomment and implement cloud sync functions below
+
 // Ensure data directory exists
 const dataDir = path.join(__dirname, 'data');
 if (!fs.existsSync(dataDir)) {
@@ -61,12 +72,47 @@ function readData(filePath) {
 function writeData(filePath, data) {
     try {
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+        // TODO: Sync to cloud storage here when enabled
+        // if (CLOUD_STORAGE_ENABLED) {
+        //     syncToCloud(filePath, data);
+        // }
         return true;
     } catch (error) {
         console.error('Error writing data:', error);
         return false;
     }
 }
+
+// Cloud Storage Functions (for future use)
+// Uncomment and implement when ready
+// 
+// async function syncToCloud(filePath, data) {
+//     try {
+//         // Example for Firebase:
+//         // const db = admin.firestore();
+//         // await db.collection('scouting').doc('data').set({ data });
+//         
+//         // Example for MongoDB:
+//         // await mongoClient.db('ftc').collection('scouting').insertMany(data);
+//         
+//         // Example for AWS S3:
+//         // const s3 = new AWS.S3();
+//         // await s3.putObject({
+//         //     Bucket: 'your-bucket',
+//         //     Key: path.basename(filePath),
+//         //     Body: JSON.stringify(data)
+//         // }).promise();
+//         
+//         console.log('✅ Data synced to cloud');
+//     } catch (error) {
+//         console.error('❌ Cloud sync failed:', error);
+//     }
+// }
+// 
+// async function readFromCloud() {
+//     // Implement cloud data retrieval
+//     // Return data from cloud storage
+// }
 
 // Authentication middleware
 function checkAuth(req, res, next) {

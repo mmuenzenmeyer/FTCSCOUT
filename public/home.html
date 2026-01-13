@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FTC Team 22351 - Official Website">
+    <meta name="theme-color" content="#0f3460">
+    <title>FTC Team 22351</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/team-site.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <!-- Team Login Button -->
+    <button id="teamLoginBtn" class="team-login-btn" title="Team Login">🔐</button>
+
+    <div class="container team-site">
+        <header class="team-header">
+            <h1>🤖 FTC Team 22351</h1>
+            <p class="tagline">Innovation • Collaboration • Excellence</p>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-tab="home">🏠 Home</button>
+            <button class="nav-btn" data-tab="scouting">📋 Scouting</button>
+            <button class="nav-btn" data-tab="build">🔧 Build Process</button>
+            <button class="nav-btn" data-tab="videos">🎥 Videos</button>
+            <button class="nav-btn" data-tab="robots">🤖 Robots</button>
+        </nav>
+
+        <!-- Tab Content -->
+        <main class="main-content">
+            <!-- Home Tab -->
+            <section id="home" class="content-pane active">
+                <div class="hero-section">
+                    <h2>Welcome to Team 22351</h2>
+                    <p class="lead">We are a FIRST Tech Challenge robotics team dedicated to innovation, learning, and competition excellence.</p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>🎯 Our Mission</h3>
+                        <p>To inspire and educate students in STEM fields through hands-on robotics competition and collaborative problem-solving.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🏆 Achievements</h3>
+                        <p>Competing in FTC tournaments, developing innovative robot designs, and building a strong team culture.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>👥 Team Culture</h3>
+                        <p>Fostering creativity, teamwork, and technical skills in a supportive and dynamic environment.</p>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3>About Our Team</h3>
+                    <p>Team 22351 participates in the FIRST Tech Challenge, where we design, build, and program robots to compete in exciting challenges. Our team members learn valuable skills in engineering, programming, project management, and teamwork.</p>
+                    <p>Through our participation in FTC, we're not just building robots—we're building futures.</p>
+                </div>
+            </section>
+
+            <!-- Scouting Tab -->
+            <section id="scouting" class="content-pane">
+                <div class="scouting-intro">
+                    <h2>🔍 Pit Scouting</h2>
+                    <p>Help us gather robot data! Submit your team's robot information below.</p>
+                    <p class="note">✨ No login required to submit</p>
+                </div>
+
+                <div id="alreadySubmittedMessage" class="already-submitted" style="display: none;">
+                    <h2>✅ Pit Data Submitted!</h2>
+                    <p class="submitted-team-number" style="font-weight: bold; margin-top: 10px; font-size: 1.2rem;"></p>
+                    <p>Thank you for sharing your robot information.</p>
+                    <p class="visit-message">If you have any updates, please visit us!</p>
+                </div>
+
+                <form id="pitScoutingForm" class="scouting-form">
+                    <!-- Team Information -->
+                    <section class="form-section">
+                        <h3>Team Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="teamNumber">Team Number</label>
+                            <input type="number" id="teamNumber" name="teamNumber" placeholder="e.g., 12345" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teamName">Team Name</label>
+                            <input type="text" id="teamName" name="teamName" placeholder="Team name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="scoutName">Scout Name</label>
+                            <input type="text" id="scoutName" name="scoutName" placeholder="Your name" required>
+                        </div>
+                    </section>
+
+                    <!-- Robot Specifications -->
+                    <section class="form-section">
+                        <h3>Robot Specifications</h3>
+                        
+                        <div class="form-group">
+                            <label for="drivetrainType">Drivetrain Type</label>
+                            <select id="drivetrainType" name="drivetrainType" required>
+                                <option value="">Select...</option>
+                                <option value="mecanum">Mecanum</option>
+                                <option value="tank">Tank/Traction</option>
+                                <option value="holonomic">Holonomic (X-Drive)</option>
+                                <option value="swerve">Swerve</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="driveMotors">Number of Drive Motors</label>
+                            <input type="number" id="driveMotors" name="driveMotors" min="1" max="8" value="4">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="robotWeight">Estimated Weight (lbs)</label>
+                            <input type="number" id="robotWeight" name="robotWeight" min="1" max="50" placeholder="Approximate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="robotDimensions">Dimensions (in)</label>
+                            <input type="text" id="robotDimensions" name="robotDimensions" placeholder="e.g., 18x18x18">
+                        </div>
+                    </section>
+
+                    <!-- Game Capabilities -->
+                    <section class="form-section">
+                        <h3>Game Capabilities</h3>
+                        
+                        <div class="form-group">
+                            <label for="canScoreSamples">Can Score Samples?</label>
+                            <select id="canScoreSamples" name="canScoreSamples">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="canScoreSpecimens">Can Score Specimens?</label>
+                            <select id="canScoreSpecimens" name="canScoreSpecimens">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="intakeType">Intake Mechanism</label>
+                            <select id="intakeType" name="intakeType">
+                                <option value="none">None</option>
+                                <option value="claw">Claw/Gripper</option>
+                                <option value="roller">Roller Intake</option>
+                                <option value="conveyor">Conveyor/Belt</option>
+                                <option value="suction">Suction</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="canClimb">Climbing Capability</label>
+                            <select id="canClimb" name="canClimb">
+                                <option value="none">No Climbing</option>
+                                <option value="low">Low Rung Only</option>
+                                <option value="high">High Rung</option>
+                                <option value="both">Both Rungs</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="canPark">Can Park?</label>
+                            <select id="canPark" name="canPark">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <!-- Autonomous -->
+                    <section class="form-section">
+                        <h3>Autonomous</h3>
+                        
+                        <div class="form-group">
+                            <label for="hasAutonomous">Has Autonomous Program?</label>
+                            <select id="hasAutonomous" name="hasAutonomous">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                                <option value="working">Work in Progress</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="autoCapabilities">Autonomous Capabilities</label>
+                            <textarea id="autoCapabilities" name="autoCapabilities" rows="3" placeholder="What can your robot do in autonomous?"></textarea>
+                        </div>
+                    </section>
+
+                    <!-- Strategy & Notes -->
+                    <section class="form-section">
+                        <h3>Strategy & Additional Info</h3>
+                        
+                        <div class="form-group">
+                            <label for="strengths">Robot Strengths</label>
+                            <textarea id="strengths" name="strengths" rows="3" placeholder="What is your robot best at?"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weaknesses">Known Weaknesses</label>
+                            <textarea id="weaknesses" name="weaknesses" rows="3" placeholder="Any known issues or limitations?"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="preferredRole">Preferred Alliance Role</label>
+                            <select id="preferredRole" name="preferredRole">
+                                <option value="scorer">Scorer (focus on points)</option>
+                                <option value="support">Support (help alliance)</option>
+                                <option value="defense">Defense</option>
+                                <option value="balanced">Balanced/Flexible</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Additional Notes</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Any other information..."></textarea>
+                        </div>
+                    </section>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Pit Data</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    </div>
+
+                    <div id="submitStatus" class="status-message"></div>
+                </form>
+            </section>
+
+            <!-- Build Process Tab -->
+            <section id="build" class="content-pane">
+                <h2>🔧 Our Build Process</h2>
+                
+                <div class="build-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-badge">1</div>
+                        <div class="timeline-content">
+                            <h3>Design & Planning</h3>
+                            <p>We start with brainstorming sessions to understand the game challenge and develop strategic approaches. Our team uses CAD software to design robot prototypes and plan mechanisms.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">2</div>
+                        <div class="timeline-content">
+                            <h3>Prototyping</h3>
+                            <p>Testing different designs and mechanisms to find the most effective solutions. We iterate quickly, learning from each prototype to improve our robot's capabilities.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">3</div>
+                        <div class="timeline-content">
+                            <h3>Construction</h3>
+                            <p>Building the final robot with precision and attention to detail. Our team members work together on mechanical, electrical, and structural components.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">4</div>
+                        <div class="timeline-content">
+                            <h3>Programming</h3>
+                            <p>Developing autonomous routines and TeleOp controls. We use Java and the FTC SDK to create responsive and intelligent robot behaviors.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">5</div>
+                        <div class="timeline-content">
+                            <h3>Testing & Refinement</h3>
+                            <p>Extensive testing and fine-tuning to optimize performance. We practice driving, test autonomous programs, and make adjustments based on real-world results.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Videos Tab -->
+            <section id="videos" class="content-pane">
+                <h2>🎥 Team Videos</h2>
+                
+                <div class="youtube-link-section">
+                    <a href="https://www.youtube.com/@YourChannelName" target="_blank" rel="noopener" class="youtube-channel-btn">
+                        <span>▶️</span>
+                        <div>
+                            <strong>Visit Our YouTube Channel</strong>
+                            <p>Subscribe for robot reveals, competition highlights, and behind-the-scenes content!</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="videos-grid">
+                    <a href="https://www.youtube.com/@YourChannelName" target="_blank" rel="noopener" class="video-card">
+                        <div class="video-placeholder">
+                            <span>🎬</span>
+                            <p>Robot Reveal Video</p>
+                        </div>
+                        <h3>Season Robot Reveal</h3>
+                        <p>First look at our competition robot and its capabilities.</p>
+                    </a>
+
+                    <a href="https://www.youtube.com/@YourChannelName" target="_blank" rel="noopener" class="video-card">
+                        <div class="video-placeholder">
+                            <span>🎬</span>
+                            <p>Competition Highlights</p>
+                        </div>
+                        <h3>Tournament Highlights</h3>
+                        <p>Best moments from our competition matches.</p>
+                    </a>
+
+                    <a href="https://www.youtube.com/@YourChannelName" target="_blank" rel="noopener" class="video-card">
+                        <div class="video-placeholder">
+                            <span>🎬</span>
+                            <p>Build Process</p>
+                        </div>
+                        <h3>Behind the Scenes</h3>
+                        <p>Watch our team work through the build season.</p>
+                    </a>
+
+                    <a href="https://www.youtube.com/@YourChannelName" target="_blank" rel="noopener" class="video-card">
+                        <div class="video-placeholder">
+                            <span>🎬</span>
+                            <p>Team Introduction</p>
+                        </div>
+                        <h3>Meet Team 22351</h3>
+                        <p>Get to know our team members and mentors.</p>
+                    </a>
+                </div>
+
+                <div class="video-note">
+                    <p>💡 <em>Update the YouTube channel link in the code to point to your actual channel!</em></p>
+                </div>
+            </section>
+
+            <!-- Robots Tab -->
+            <section id="robots" class="content-pane">
+                <h2>🤖 Our Robots</h2>
+                
+                <div class="robots-showcase">
+                    <div class="robot-card">
+                        <div class="robot-image-placeholder">
+                            <span>🤖</span>
+                        </div>
+                        <h3>Current Season Robot</h3>
+                        <div class="robot-specs">
+                            <p><strong>Drivetrain:</strong> Mecanum wheels</p>
+                            <p><strong>Key Features:</strong> High-reach arm, precision intake</p>
+                            <p><strong>Autonomous:</strong> Multi-specimen scoring</p>
+                        </div>
+                        <p class="robot-description">Our latest robot designed for the current FTC challenge, featuring innovative mechanisms and reliable performance.</p>
+                    </div>
+
+                    <div class="robot-card">
+                        <div class="robot-image-placeholder">
+                            <span>🤖</span>
+                        </div>
+                        <h3>Previous Season</h3>
+                        <div class="robot-specs">
+                            <p><strong>Drivetrain:</strong> Tank drive</p>
+                            <p><strong>Key Features:</strong> Fast intake, stable scoring</p>
+                            <p><strong>Achievements:</strong> Qualifier semi-finalists</p>
+                        </div>
+                        <p class="robot-description">Last year's competition robot that helped us learn and improve our design skills.</p>
+                    </div>
+                </div>
+
+                <div class="robot-note">
+                    <p>📸 <em>Robot photos and detailed specs will be added soon!</em></p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="team-footer">
+            <p>&copy; 2026 FTC Team 22351 | Built with ❤️ for FIRST Tech Challenge</p>
+        </footer>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="modalClose">&times;</span>
+            <h2>Team Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autofocus>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <div id="loginError" class="error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/pit-scout.js"></script>
+    <script>
+        // Tab navigation for main site
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const contentPanes = document.querySelectorAll('.content-pane');
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabName = btn.dataset.tab;
+                
+                navBtns.forEach(b => b.classList.remove('active'));
+                contentPanes.forEach(p => p.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
